@@ -1,0 +1,8 @@
+{
+  "name": "simple-authentication",
+  "version": "1.0.0",
+  "description": "a simple login/logout and authentication page",
+  "private": true,
+  "author": "Basma Khalil",
+  "license": "CC BY-NC-SA"
+}
