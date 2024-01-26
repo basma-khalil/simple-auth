@@ -31,16 +31,17 @@ A simple login/logout animated page built with semantic HTML, [**TypeScript**](h
 
 ### Built With
 
-[![Built With](https://skillicons.dev/icons?html,ts,tailwind,gulp,githubactions,netlify)](https://skillicons.dev)
+[![Built With](https://skillicons.dev/icons?i=html,ts,tailwind,gulp,githubactions,netlify)](https://skillicons.dev)
 
 ### Features
 
 - Animated registration page
-- CI/CD implementation using GitHub actions
+- CI/CD implementation with GitHub flow using GitHub actions
 - Responsive web design
 - Cross browser support
 - Optimized code
-- Progressive Web App (PWA)
+- Progressive web app (PWA)
+- Offline-first web app
 - Meet the WebAIM Checklist for Web Content Accessibility Guidelines (WCAG)
 
 ### Usability
@@ -80,7 +81,7 @@ npm run build
 To launch the test runner in the interactive watch mode, run the following command:
 
 ```
-npm run cypress:open
+npm run cy:open
 ```
 
 ## Credits

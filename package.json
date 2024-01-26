@@ -2,7 +2,35 @@
   "name": "simple-authentication",
   "version": "1.0.0",
   "description": "a simple login/logout and authentication page",
+  "type": "module",
   "private": true,
+  "scripts": {
+    "build-dev": "gulp",
+    "build-css": "tailwindcss -i ./src/styles/main.css -o ./build/css/main.css --minify",
+    "ts:watch": "tsc --watch",
+    "build-js": "tsc",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "build": "gulp build"
+  },
   "author": "Basma Khalil",
-  "license": "CC BY-NC-SA"
+  "license": "CC BY-NC-SA",
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
+    "autoprefixer": "^10.4.17",
+    "cypress": "^13.6.3",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^9.0.0",
+    "gulp-postcss": "^9.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
 }
