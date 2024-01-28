@@ -100,4 +100,4 @@ This code is licensed under the **Attribution-NonCommercial-ShareAlike** License
 
 ## Demo
 
-For Demo of this template you can visit [https://simple-auth.netlify.app](https://simple-auth.netlify.app "Go to website")
+For Demo of this template you can visit [https://animated-authentication.netlify.app](https://animated-authentication.netlify.app "Go to website")
