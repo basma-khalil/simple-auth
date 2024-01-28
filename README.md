@@ -83,6 +83,7 @@ To launch the test runner in the interactive watch mode, run the following comma
 ```
 npm run cy:open
 ```
+I use the VS Code Live Server extension port as the default root URL for my tests. You can set your `baseUrl` in the Cypress configuration file.
 
 ## Credits
 

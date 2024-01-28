@@ -15,7 +15,7 @@ jobs:
         node: [18, 20, 21]
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node }}
@@ -40,7 +40,7 @@ jobs:
         node: [18, 20, 21]
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node }}
