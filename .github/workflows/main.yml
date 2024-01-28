@@ -12,16 +12,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18, 20, 21]
+        node: [18, 20, 21]
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
       - name: Install dependencies
         run: npm install
@@ -32,7 +32,7 @@ jobs:
   test:
     needs: build
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: E2E on Node v${{ matrix.node }}
+      - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
@@ -52,3 +52,5 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          config: baseUrl=https://animated-authentication.netlify.app
