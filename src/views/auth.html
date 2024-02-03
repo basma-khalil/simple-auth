@@ -19,9 +19,13 @@
     <link rel="manifest" href="manifest.json" />
     <title>Authentication</title>
   </head>
-  <body>
-    @@include('./pages/_auth.html') @@include('./components/_footer.html')
-
+  <body
+    class="w-full h-full font-mainFontFamily text-mainFont text-base overflow-hidden"
+  >
+    <div class="circle"></div>
+    <div class="container min-h-screen mx-auto px-6">
+      @@include('./pages/_auth.html') @@include('./components/_footer.html')
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>

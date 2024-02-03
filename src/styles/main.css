@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.circle {
+    @apply absolute top-[-10%] right-[48%] w-[2000px] h-[2000px] bg-gradient-45 from-main to-gradient rounded-full translate-y-[-50%] -z-50;
+}
