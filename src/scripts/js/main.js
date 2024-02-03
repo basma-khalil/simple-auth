@@ -53,6 +53,27 @@
         }
     });
 
+    const loggedIn = () => 'simpleAuthUser' in localStorage;
+
+    const getUserData = () => {
+        if (loggedIn()) {
+            const user = JSON.parse(localStorage.getItem('simpleAuthUser'));
+            return user;
+        }
+        return false;
+    };
+
+    const loggedHeader = () => {
+        const user = document.getElementById('user');
+        const log = document.getElementById('log');
+        if (getUserData()) {
+            const { userName } = getUserData();
+            user.textContent = userName;
+            log.textContent = 'sign out';
+        }
+    };
+
     registerServiceWorker();
+    loggedHeader();
 
 })();
