@@ -57,7 +57,7 @@ To get started, you need [node.js](https://nodejs.org/en "Go to website") and np
 To clone the project locally, run the following command:
 
 ```
-git clone https://github.com/basma-khalil/simple-authentication.git
+git clone https://github.com/basma-khalil/simple-auth.git
 ```
 
 ### Installing
