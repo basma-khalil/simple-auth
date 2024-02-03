@@ -30,7 +30,7 @@ const filesPaths = {
     dest: 'build/css/',
   },
   ts: {
-    src: 'src/scripts/ts/main.ts',
+    src: 'src/scripts/ts/',
     dest: 'src/scripts/js/main.js',
   },
   js: {
@@ -88,8 +88,8 @@ function cssTask() {
 // Compile ts files into one js file
 async function tsTask() {
 	const bundle = await rollup({
-			input: filesPaths.ts.src,
-			plugins: [rollupTypescript({ module: "ESNext" })]
+			input: filesPaths.ts.src + 'main.ts',
+			plugins: [rollupTypescript({ module: 'ESNext' })]
 		})
 		await bundle.write({
 				file: filesPaths.ts.dest,
@@ -132,7 +132,7 @@ function watchTask() {
       filesPaths.images.src,
       filesPaths.html.src + '**/*.html',
       filesPaths.css.src,
-      filesPaths.ts.src,
+      filesPaths.ts.src + '**/*.ts',
     ],
     series(imageTask, htmlTask, cssTask, tsTask, jsTask, pwaTask)
   );
