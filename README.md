@@ -15,6 +15,7 @@ A simple login/logout and authentication page
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installing](#installing)
+    - [Development Mode](#development-mode)
     - [Production Build](#production-build)
     - [Testing](#testing)
   - [Credits](#credits)
@@ -68,6 +69,20 @@ To install dependencies, go to the project directory and run the following comma
 npm install
 ```
 
+### Development Mode
+
+- To Runs the app in the development watch mode, run the following command:
+
+```
+gulp
+```
+- To start the local server, run the following command:
+
+```
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
 ### Production Build
 
 To create an optimized build of the application for production deployment, run the following command:
@@ -83,7 +98,7 @@ To launch the test runner in the interactive watch mode, run the following comma
 ```
 npm run cy:open
 ```
-I use the VS Code Live Server extension port as the default root URL for my tests. You can set your `baseUrl` in the Cypress configuration file.
+Please start the local server before running the test.
 
 ## Credits
 

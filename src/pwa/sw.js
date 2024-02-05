@@ -3,7 +3,7 @@ const imageCacheName = 'simple-auth-image-v1';
 const assets = [
   '/',
   '/index.html',
-  '/authentication.html',
+  '/auth.html',
   '/css/main.css',
   '/js/main.js',
   '/manifest.json',

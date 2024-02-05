@@ -93,7 +93,7 @@ async function tsTask() {
 		})
 		await bundle.write({
 				file: filesPaths.ts.dest,
-				format: 'iife',
+				format: 'umd',
 		});
 }
 
