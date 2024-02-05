@@ -1,7 +1,9 @@
-(function () {
-    'use strict';
+(function (factory) {
+  typeof define === 'function' && define.amd ? define(factory) : factory();
+})(function () {
+  'use strict';
 
-    /******************************************************************************
+  /******************************************************************************
     Copyright (c) Microsoft Corporation.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -15,42 +17,68 @@
     OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
-    /* global Reflect, Promise, SuppressedError, Symbol */
+  /* global Reflect, Promise, SuppressedError, Symbol */
 
-
-    function __awaiter(thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-        return new (P || (P = Promise))(function (resolve, reject) {
-            function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-            function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-            step((generator = generator.apply(thisArg, _arguments || [])).next());
-        });
+  function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+      return value instanceof P
+        ? value
+        : new P(function (resolve) {
+            resolve(value);
+          });
     }
-
-    typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
-        var e = new Error(message);
-        return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
-    };
-
-    const registerServiceWorker = () => __awaiter(void 0, void 0, void 0, function* () {
-        if ("serviceWorker" in navigator) {
-            try {
-                const registration = yield navigator.serviceWorker.register("/sw.js");
-                if (registration.installing) {
-                    console.log("Service worker installing");
-                }
-                else if (registration.waiting) {
-                    console.log("Service worker installed");
-                }
-                else if (registration.active) {
-                    console.log("Service worker active");
-                }
-            }
-            catch (err) {
-                console.error(`Registration failed with ${err}`);
-            }
+    return new (P || (P = Promise))(function (resolve, reject) {
+      function fulfilled(value) {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
         }
+      }
+      function rejected(value) {
+        try {
+          step(generator['throw'](value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function step(result) {
+        result.done
+          ? resolve(result.value)
+          : adopt(result.value).then(fulfilled, rejected);
+      }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+  }
+
+  typeof SuppressedError === 'function'
+    ? SuppressedError
+    : function (error, suppressed, message) {
+        var e = new Error(message);
+        return (
+          (e.name = 'SuppressedError'),
+          (e.error = error),
+          (e.suppressed = suppressed),
+          e
+        );
+      };
+
+  const registerServiceWorker = () =>
+    __awaiter(void 0, void 0, void 0, function* () {
+      if ('serviceWorker' in navigator) {
+        try {
+          const registration = yield navigator.serviceWorker.register('/sw.js');
+          if (registration.installing) {
+            console.log('Service worker installing');
+          } else if (registration.waiting) {
+            console.log('Service worker installed');
+          } else if (registration.active) {
+            console.log('Service worker active');
+          }
+        } catch (err) {
+          console.error(`Registration failed with ${err}`);
+        }
+      }
     });
 
     const loggedIn = () => 'simpleAuthUser' in localStorage;
@@ -73,7 +101,5 @@
         }
     };
 
-    registerServiceWorker();
-    loggedHeader();
-
-})();
+  registerServiceWorker();
+});
