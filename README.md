@@ -26,7 +26,7 @@ A simple login/logout and authentication page
 
 ### Description
 
-A simple login/logout animated page built with semantic HTML, [**TypeScript**](https://www.typescriptlang.org/ "Go to website"), and [**Tailwind**](https://tailwindcss.com/ "Go to website") CSS framework, along with using [**Gulp**](https://gulpjs.com/ "Go to website") toolkit to compile and optimize the code and [**Cypress**](https://www.cypress.io/ "Go to website") test runner to test the app.
+A simple login/logout animated page built with semantic HTML, [**TypeScript**](https://www.typescriptlang.org/ "Go to website"), and [**Tailwind**](https://tailwindcss.com/ "Go to website") CSS framework, along with using [**Gulp**](https://gulpjs.com/ "Go to website") toolkit to compile and optimize the code and [**Jest**](https://jestjs.io/ "Go to website") and [**Cypress**](https://www.cypress.io/ "Go to website") test runners to test the app.
 
 ### Live preview
 
@@ -93,12 +93,18 @@ npm run build
 
 ### Testing
 
-To launch the test runner in the interactive watch mode, run the following command:
+- To launch the **Jest** test runner in the interactive watch mode, run the following command:
+
+```
+npm run test:watch
+```
+
+- To launch the **Cypress** test runner in the interactive watch mode, run the following command:
 
 ```
 npm run cy:open
 ```
-Please start the local server before running the test.
+Please start the local server before running the **Cypress** test.
 
 ## Credits
 

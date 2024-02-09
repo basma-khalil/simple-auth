@@ -36,17 +36,17 @@
     };
 
     const registerServiceWorker = () => __awaiter(void 0, void 0, void 0, function* () {
-        if ("serviceWorker" in navigator) {
+        if ('serviceWorker' in navigator) {
             try {
-                const registration = yield navigator.serviceWorker.register("/sw.js");
+                const registration = yield navigator.serviceWorker.register('/sw.js');
                 if (registration.installing) {
-                    console.log("Service worker installing");
+                    console.log('Service worker installing');
                 }
                 else if (registration.waiting) {
-                    console.log("Service worker installed");
+                    console.log('Service worker installed');
                 }
                 else if (registration.active) {
-                    console.log("Service worker active");
+                    console.log('Service worker active');
                 }
             }
             catch (err) {
@@ -57,9 +57,9 @@
 
     const loggedIn = () => 'simpleAuthUser' in localStorage;
 
-    const getUserData = () => (loggedIn()
+    const getUserData = () => loggedIn()
         ? JSON.parse(localStorage.getItem('simpleAuthUser'))
-        : false);
+        : false;
 
     const loggedHeader = () => {
         const user = document.getElementById('user');

@@ -52,7 +52,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Cypress run
+      - name: Jest unit testing
+        run: npm test
+
+      - name: Cypress E2E testing
         uses: cypress-io/github-action@v6
         with:
           build: npm run build

@@ -34,7 +34,7 @@ describe('Header spec', () => {
   });
 
   it('Should display the user name and the sign out link if the user is signed in', () => {
-    const user: {} = {
+    const user = {
       userName: 'user name',
       userEmail: 'user email',
       userPassword: 'user password',

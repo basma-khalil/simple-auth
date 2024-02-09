@@ -1,3 +1,4 @@
+// Setup express server to run GitHub actions E2E test
 import express from 'express';
 
 const app  = express();
