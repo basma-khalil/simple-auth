@@ -1,4 +1,4 @@
-const staticCacheName = 'simple-auth-static-v1';
+const staticCacheName = 'simple-auth-static-v2';
 const imageCacheName = 'simple-auth-image-v1';
 const assets = [
   '/',
