@@ -71,7 +71,14 @@
         }
     };
 
+    const coprCurrentYear = () => {
+        const copyrightYear = document.getElementById('current-year');
+        const date = new Date();
+        copyrightYear.textContent = `${date.getFullYear()}`;
+    };
+
     registerServiceWorker();
     loggedHeader();
+    coprCurrentYear();
 
 }));
