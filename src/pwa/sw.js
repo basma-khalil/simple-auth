@@ -1,11 +1,14 @@
-const staticCacheName = 'simple-auth-static-v3';
-const imageCacheName = 'simple-auth-image-v1';
+const staticCacheName = 'simple-auth-static-v4';
+const imageCacheName = 'simple-auth-image-v2';
 const assets = [
   '/',
   '/index.html',
   '/auth.html',
+  '/account/edit.html',
   '/css/main.css',
   '/js/main.js',
+  '/js/auth.js',
+  '/js/edit.js',
   '/manifest.json',
   'https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Poppins:wght@200;300;400;500;600;700;800&display=swap',
 ];
@@ -14,6 +17,15 @@ const imageAssets = [
   '/images/hero.svg',
   '/images/log.svg',
   '/images/register.svg',
+  '/images/user.svg',
+  '/images/envelope.svg',
+  '/images/lock.svg',
+  '/images/exclamation.svg',
+  '/images/home.svg',
+  '/images/edit.svg',
+  '/images/logout.svg',
+  '/images/delete.svg',
+  '/images/camera.svg',
   '/images/icons/icon-192.png',
   '/images/icons/icon-512.png',
 ];

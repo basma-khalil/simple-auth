@@ -1,6 +1,6 @@
-import { loggedIn } from './loggedIn';
+import { isRegistered } from '../auth/isRegistered';
 
 export const getUserData = () =>
-  loggedIn()
+isRegistered()
     ? JSON.parse(localStorage.getItem('simpleAuthUser') as string)
     : false;

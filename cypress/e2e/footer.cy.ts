@@ -8,6 +8,14 @@ describe('Footer spec', () => {
         delete Object.getPrototypeOf(win.navigator).serviceWorker;
       },
     });
+    // Disable Service Worker so Cypress can visit() correctly
+    if (window.navigator && navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+          registration.unregister();
+        });
+      });
+    }
   })
 
   it('Should display the current year in the footer copyright', () => {

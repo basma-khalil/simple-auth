@@ -1,4 +1,4 @@
-import { getUserData } from '../src/scripts/ts/modules/getUserData';
+import { getUserData } from '../src/scripts/ts/modules/user/getUserData';
 
 describe('getUserData functions', () => {
   it('Should return false if the simpleAuthUser key is not in the local storage', () => {
@@ -6,10 +6,12 @@ describe('getUserData functions', () => {
   });
 
   it('Should return the simpleAuthUser object value if the simpleAuthUser key is in the local storage', () => {
-    const userData = {
+    const userData: User = {
       userName: 'user name',
       userEmail: 'user email',
       userPassword: 'user password',
+      userThumb: 'user thump',
+      isLogged: true,
     };
 
     localStorage.setItem('simpleAuthUser', JSON.stringify(userData));
