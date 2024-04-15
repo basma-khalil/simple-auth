@@ -126,14 +126,114 @@
         window.location.replace('/');
     };
 
+    const updateImage = (evt) => {
+        if (!isRegistered())
+            return;
+        const avatar = document.getElementById('avatar');
+        const imgAlert = document.getElementById('img-alert');
+        const input = evt.target;
+        const maxSize = 3000000;
+        const userData = getUserData();
+        imgAlert.textContent = '';
+        if (!input.files)
+            return;
+        const img = input.files[0];
+        if (img.size > maxSize) {
+            imgAlert.textContent = `image is too big, Please select an image less than ${maxSize / 1000000} MB`;
+            return;
+        }
+        avatar.src = URL.createObjectURL(img);
+        const reader = new FileReader();
+        reader.readAsDataURL(img);
+        reader.addEventListener('load', () => {
+            const delImgBtn = document.getElementById('remove');
+            const imgUrl = reader.result;
+            userData.userThumb = imgUrl;
+            delImgBtn.classList.remove('invisible');
+            localStorage.setItem('simpleAuthUser', JSON.stringify(userData));
+        });
+    };
+
+    const validateForm = (formInputs) => {
+        const setErrMessage = (ErrMessageElement, ErrMessage) => {
+            ErrMessageElement.textContent = ErrMessage;
+        };
+        const inputValidation = (input, inputErrMessage) => setErrMessage(inputErrMessage, input.validationMessage);
+        formInputs.forEach((input) => {
+            inputValidation(input, input.nextElementSibling);
+            input.addEventListener('input', (evt) => inputValidation(input, input.nextElementSibling));
+        });
+    };
+
+    const updateAccount = (evt) => {
+        evt.preventDefault();
+        if (!isRegistered())
+            return;
+        const usernameInput = document.getElementById('update-username');
+        const emailInput = document.getElementById('update-email');
+        const passwordInput = document.getElementById('update-password');
+        const newName = usernameInput.value.trim();
+        const newEmail = emailInput.value.trim();
+        const newPassword = passwordInput.value.trim();
+        const { userThumb } = getUserData();
+        const updateForm = document.getElementById('update-form');
+        const formInputs = [usernameInput, emailInput, passwordInput];
+        updateForm.classList.add('submitted');
+        validateForm(formInputs);
+        if (updateForm.checkValidity()) {
+            const user = {
+                userName: newName,
+                userEmail: newEmail,
+                userPassword: newPassword,
+                userThumb,
+                isLogged: true,
+            };
+            updateForm.classList.remove('submitted');
+            localStorage.setItem('simpleAuthUser', JSON.stringify(user));
+            window.location.reload();
+        }
+    };
+
+    const deleteImage = () => {
+        const avatar = document.getElementById('avatar');
+        const delImgBtn = document.getElementById('remove');
+        const userData = getUserData();
+        const defaultImg = '/images/user.svg';
+        avatar.src = defaultImg;
+        delImgBtn.classList.add('invisible');
+        userData.userThumb = defaultImg;
+        localStorage.setItem('simpleAuthUser', JSON.stringify(userData));
+    };
+
     registerServiceWorker();
     loggedHeader();
     coprCurrentYear();
-    const profile = document.getElementById('profile');
-    profile.addEventListener('click', toggleMenu);
+    const menuBtn = document.getElementById('menu-btn');
+    menuBtn.addEventListener('click', toggleMenu);
     const logoutBtn = document.getElementById('logout-btn');
     logoutBtn.addEventListener('click', logOut);
     const deleteBtn = document.getElementById('delete-acc');
     deleteBtn.addEventListener('click', deleteAccount);
+    const fileInput = document.getElementById('file');
+    fileInput.addEventListener('change', updateImage);
+    const userData = getUserData();
+    const { userName, userEmail, userPassword, userThumb } = userData;
+    const usernameHeader = document.getElementById('username');
+    usernameHeader.textContent = userName;
+    const usernameInput = document.getElementById('update-username');
+    const emailInput = document.getElementById('update-email');
+    const passwordInput = document.getElementById('update-password');
+    const avatar = document.getElementById('avatar');
+    const defaultImg = '/images/user.svg';
+    // User Initial Values
+    usernameInput.value = userName || '';
+    emailInput.value = userEmail || '';
+    passwordInput.value = userPassword || '';
+    avatar.src = userThumb || defaultImg;
+    const updateForm = document.getElementById('update-form');
+    updateForm.addEventListener('submit', updateAccount);
+    const delImgBtn = document.getElementById('remove');
+    (userThumb !== defaultImg && userThumb !== undefined) && delImgBtn.classList.remove('invisible');
+    delImgBtn.addEventListener('click', deleteImage);
 
 }));

@@ -30,8 +30,20 @@ const filesPaths = {
     dest: 'build/css/',
   },
   ts: {
-    src: 'src/scripts/ts/',
-    dest: 'src/scripts/js/main.js',
+    path: 'src/scripts/ts/**/*.ts',
+    files: [
+      {
+        src: 'src/scripts/ts/main.ts',
+        dest: 'src/scripts/js/main.js',
+      },
+      {
+        src: 'src/scripts/ts/auth.ts',
+        dest: 'src/scripts/js/auth.js',
+      },{
+        src: 'src/scripts/ts/edit.ts',
+        dest: 'src/scripts/js/edit.js',
+      }
+    ]
   },
   js: {
     src: 'src/scripts/js/*.js',
@@ -51,24 +63,38 @@ function imageTask() {
 }
 
 // Include and minify html
-function htmlTask() {
-  return src(filesPaths.html.src + '*.html')
-    .pipe(fileinclude({
-        prefix: '@@',
-        basepath: '@file',
-    }))
-    .pipe(htmlmin({
-        collapseWhitespace: true,
-        removeComments: true,
-    }))
-    .pipe(dest(filesPaths.html.dest));
+function htmlTask(done) {
+  const htmlFiles = [
+    {
+      src: filesPaths.html.src + '*.html',
+      dest: filesPaths.html.dest,
+    },
+    {
+      src: filesPaths.html.src + 'account/*.html',
+      dest: filesPaths.html.dest + 'account/',
+    }
+  ];
+
+  htmlFiles.map(file => {
+    return src(file.src)
+      .pipe(fileinclude({
+          prefix: '@@',
+          basepath: '@file',
+      }))
+      .pipe(htmlmin({
+          collapseWhitespace: true,
+          removeComments: true,
+      }))
+      .pipe(dest(file.dest));
+  });
+  done();
 }
 
 // Compile tailwindcss, then purge, prefix, and minify css
 function cssTask() {
   const plugins = [
     tailwindcss(),
-    purgecss({
+    purgecss({ // Slow
       content: ['./**/*.{html,js,ts}'],
       defaultExtractor: (content) => content.match(/[\w\-:.\/\[#%\]]+(?<!:)/g) || [],
     }),
@@ -85,16 +111,18 @@ function cssTask() {
     .pipe(dest(filesPaths.css.dest));
 }
 
-// Compile ts files into one js file
+// Compile ts files into a single js file
 async function tsTask() {
-	const bundle = await rollup({
-			input: filesPaths.ts.src + 'main.ts',
-			plugins: [rollupTypescript({ module: 'ESNext' })]
-		})
-		await bundle.write({
-				file: filesPaths.ts.dest,
-				format: 'umd',
-		});
+  filesPaths.ts.files.forEach(async (file)=> {
+    const bundle = await rollup({
+      input: file.src,
+      plugins: [rollupTypescript({ module: 'ESNext' })],
+    });
+    return await bundle.write({
+      file: file.dest,
+      format: 'umd',
+    });
+  })
 }
 
 // Compile, and minify js
@@ -132,7 +160,7 @@ function watchTask() {
       filesPaths.images.src,
       filesPaths.html.src + '**/*.html',
       filesPaths.css.src,
-      filesPaths.ts.src + '**/*.ts',
+      filesPaths.ts.path,
     ],
     series(imageTask, htmlTask, cssTask, tsTask, jsTask, pwaTask)
   );

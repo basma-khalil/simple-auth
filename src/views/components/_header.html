@@ -1,15 +1,66 @@
 <!-- Start Header -->
-<header>
-  <div class="flex justify-between items-center py-4 capitalize">
+<header class="z-50">
+  <div class="relative flex justify-between items-center py-4 capitalize">
     <h1 class="text-white text-lg font-semibold">
       <a href="/">authentication</a>
     </h1>
-    <div class="flex gap-x-8 items-center">
-      <span id="user"></span>
+    <div class="flex items-center">
+      <div id="profile" class="hidden">
+        <button
+          id="menu-btn"
+          class="group size-[34px] mr-2 bg-white text-end rounded-full overflow-hidden"
+          aria-label="toggle menu"
+          aria-controls="menu"
+          aria-expanded="false"
+        >
+          <img
+            id="thumb"
+            class="size-full object-cover transition group-hover:opacity-70"
+            src="/images/user.svg"
+            alt="User"
+          />
+        </button>
+        <div
+          id="menu"
+          class="invisible absolute top-full right-0 w-full max-w-52 p-5 bg-white opacity-0 capitalize border rounded-2xl shadow-md translate-y-20 transition-all duration-500 before:content-[''] before:absolute before:-top-2 before:right-4 before:size-4 before:bg-white before:border-t before:border-l before:rotate-45"
+          aria-live="polite"
+        >
+          <span
+            id="user"
+            class="block text-center py-5 font-semibold text-lg"
+          ></span>
+          <ul>
+            <li>
+              <a href="/">
+                <img src="/images/home.svg" alt="Home" />
+                home
+              </a>
+            </li>
+            <li>
+              <a href="/account/edit">
+                <img src="/images/edit.svg" alt="Edit" />
+                edit profile
+              </a>
+            </li>
+            <li>
+              <button id="logout-btn">
+                <img src="/images/logout.svg" alt="Logout" />
+                sign out
+              </button>
+            </li>
+            <li>
+              <button id="delete-acc">
+                <img src="/images/delete.svg" alt="Delete" />
+                delete account
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
       <a
-        href="auth"
+        href="/auth"
         id="log"
-        class="inline-block px-3 py-1 border border-mainFont rounded-full transition hover:text-white hover:border-main hover:bg-main"
+        class="inline-block px-3 py-1 text-white lg:text-mainFont border border-white lg:border-mainFont rounded-3xl transition hover:text-white hover:border-main hover:bg-main"
         >sign in</a
       >
     </div>

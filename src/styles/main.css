@@ -4,12 +4,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---- Start Base Rules ---- */
+body {
+    @apply w-full h-full font-mainFontFamily text-mainFont text-base;
+}
+
 .circle {
-    @apply absolute bottom-[72%] left-1/2 sm:bottom-[68%] sm:left-[30%] md:bottom-[auto] md:left-[auto] md:top-[-10%] md:right-[48%] w-[1500px] h-[1500px] md:w-[2000px] md:h-[2000px] bg-gradient-45 from-main to-gradient rounded-full translate-x-[-50%] md:translate-x-0 md:translate-y-[-50%] transition duration-200 ease-in-out -z-50;
+    @apply relative overflow-hidden;
+}
+
+.circle::after {
+    @apply content-[''] absolute bottom-[72%] left-1/2 sm:bottom-[68%] md:left-[30%] lg:bottom-[auto] lg:left-[auto] lg:top-[-10%] lg:right-[48%] size-[1500px] lg:size-[2000px] bg-gradient-45 from-main to-gradient rounded-full -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2 transition-all duration-[1.8s] ease-in-out z-[5];
+}
+
+.signup-mode .circle::after {
+    @apply bottom-[32%] md:bottom-[36%] lg:bottom-[auto] lg:right-[52%] translate-y-full lg:translate-x-full lg:-translate-y-1/2;
 }
 
 .site-wrap {
-    @apply container grid w-full min-h-screen mx-auto px-6 overflow-hidden;
+    @apply container grid w-full min-h-[870px] h-screen lg:min-h-screen lg:h-auto mx-auto px-6;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
         "hd"
@@ -22,6 +35,7 @@ header {
 }
 
 main {
+    @apply relative;
     grid-area: main;
 }
 
@@ -29,22 +43,211 @@ footer {
     grid-area: ft;
 }
 
-@media (max-height: 750px) {
-    .hero {
-        margin-top: 1rem;
-    }
+footer,
+.hero figure,
+.hero div {
+    @apply z-10;
 }
 
-@media (max-height: 500px) {
-    .hero div,
-    .hero figure {
-        width: 50%;
-    }
+/* Start Main Forms */
+form.submitted input:invalid:not(:focus) {
+    @apply border border-red-500;
 }
 
-@media (min-height: 1000px) and (max-width: 1000px) {
-    .hero div,
-    .hero figure {
-        width: 100%;
-    }
+.input-field {
+    @apply w-full max-w-96;
+}
+
+.input-field label {
+    @apply sr-only;
+}
+
+.input-field input {
+    @apply w-full py-3.5 pl-14 pr-3 bg-[#f0f0f0] bg-[length:1rem] bg-[1.45rem_center] bg-no-repeat rounded-3xl outline-none focus:border focus:border-main;
+}
+
+.input-field input:not(:focus).invalid {
+    @apply border border-red-500;
+}
+
+.username input {
+    @apply bg-user;
+}
+
+.email input {
+    @apply bg-email;
+}
+
+.password input {
+    @apply bg-password;
+}
+
+.error-message {
+    @apply pl-9 pr-4 bg-exclamation bg-[length:0.875rem] bg-[1.1rem_7px] bg-no-repeat text-red-500 text-sm text-start leading-loose;
+}
+
+#img-alert {
+    @apply text-center;
+}
+
+/* ---- Start User Menu ---- */
+#menu.show {
+    @apply visible opacity-100 translate-y-0;
+}
+
+#menu li a,
+#menu li button {
+    @apply flex items-center gap-x-2.5 w-full py-5 border-t transition;
+}
+
+#menu li img {
+    @apply w-5 opacity-35 transition;
+}
+
+#menu a:hover,
+#menu button:hover,
+#menu a:focus,
+#menu button:focus {
+    @apply text-main;
+}
+
+#menu a:hover img,
+#menu a:focus img,
+#menu button:hover img,
+#menu button:focus img {
+    @apply opacity-100;
+}
+
+/* ---- Start Auth Page ---- */
+.auth,
+.switch {
+    @apply absolute top-0 left-0 w-full h-full flex flex-wrap lg:items-center overflow-hidden;
+}
+
+/* Start Switch Section */
+.tooltip {
+    @apply flex lg:flex-col justify-between lg:justify-around w-full lg:w-1/2 lg:h-full pt-12 pb-4 text-white text-center z-10;
+}
+
+.signin-tip {
+    @apply self-end pointer-events-none;
+}
+
+.signup-mode .signup-tip {
+    @apply pointer-events-none;
+}
+
+.signup-mode .signin-tip {
+    @apply pointer-events-auto;
+}
+
+.tooltip section {
+    @apply w-full md:w-1/2 lg:w-full transition-transform duration-[900ms] delay-[600ms] ease-in-out;
+}
+
+.tooltip figure {
+    @apply hidden md:block sm:w-48 lg:w-full transition-transform duration-[1.1s] delay-[400ms] ease-in-out;
+}
+
+.signin-tip section,
+.signin-tip figure {
+    @apply translate-y-[130%] lg:translate-y-0 lg:translate-x-[130%];
+}
+
+.signup-mode .signup-tip section,
+.signup-mode .signup-tip figure {
+    @apply -translate-y-[130%] lg:translate-y-0 lg:-translate-x-[130%];
+}
+
+.signup-mode .signin-tip section,
+.signup-mode .signin-tip figure {
+    @apply transform-none;
+}
+
+.tooltip h3 {
+    @apply text-xl lg:text-2xl font-semibold first-letter:uppercase;
+}
+
+.tooltip p {
+    @apply text-sm lg:text-base my-3;
+}
+
+.tooltip button {
+    @apply w-28 lg:w-32 py-1.5 text-sm lg:text-base font-medium uppercase border-2 border-white rounded-3xl;
+}
+
+/* Start Auth Section */
+.form-wrap {
+    @apply absolute top-[90%] lg:top-1/2 left-1/2 lg:left-3/4 w-full lg:w-1/2 text-center -translate-y-full lg:-translate-y-1/2 -translate-x-1/2 transition-all duration-1000 delay-700 ease-in-out;
+}
+
+.signup-mode .form-wrap {
+    @apply top-[6%] lg:top-1/2 lg:left-1/4 translate-y-0 lg:-translate-y-1/2;
+}
+
+.signup-wrap {
+    @apply -z-[1];
+}
+
+.signup-mode .signin-wrap {
+    @apply -z-[1];
+}
+
+.signup-mode .signup-wrap {
+    @apply z-auto;
+}
+
+/* Start form */
+.form-wrap form {
+    @apply flex flex-col justify-center items-center gap-y-5 w-full transition-opacity duration-200 delay-700;
+}
+
+.signup-wrap form {
+    @apply opacity-0;
+}
+
+.signup-mode .signin-wrap form {
+    @apply opacity-0;
+}
+
+.signup-mode .signup-wrap form {
+    @apply opacity-100;
+}
+
+.form-wrap h2 {
+    @apply text-4xl first-letter:uppercase font-bold;
+}
+
+.form-wrap button {
+    @apply py-3 w-36 bg-minor hover:bg-main focus:bg-main text-white text-sm lg:text-base font-medium uppercase rounded-3xl transition;
+}
+
+.form-wrap p {
+    @apply first-letter:uppercase;
+}
+
+/* Start socials */
+.social ul {
+    @apply flex justify-center;
+}
+
+.social li {
+    @apply mx-2;
+}
+
+.social a {
+    @apply flex justify-center items-center size-11 p-2 border border-mainFont hover:border-main outline-main rounded-full transition;
+}
+
+.social svg {
+    @apply block w-4 max-h-full transition;
+}
+
+.social li:first-child svg {
+    @apply w-3;
+}
+
+.social a:hover svg,
+.social a:focus svg {
+    @apply fill-main;
 }

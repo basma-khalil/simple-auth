@@ -1,0 +1,126 @@
+<!-- Start Edit Profile Main -->
+<main>
+  <div
+    class="relative flex justify-center items-center flex-wrap gap-y-12 md:gap-y-16 mt-12 lg:mt-24 z-10"
+  >
+    <section
+      class="flex flex-col justify-center items-center gap-y-6 w-full lg:w-1/2 text-white"
+    >
+      <h2 id="username" class="text-2xl capitalize font-semibold"></h2>
+      <div>
+        <div class="relative size-36 m-auto">
+          <figure class="size-36 bg-white rounded-full overflow-hidden">
+            <img
+              id="avatar"
+              src="/images/user.svg"
+              class="size-full object-cover"
+              alt="User"
+            />
+          </figure>
+          <button
+            id="remove"
+            class="invisible absolute -top-1.5 right-1.5 flex justify-center items-center size-11 p-1.5 bg-white opacity-80 rounded-full overflow-hidden transition hover:opacity-100"
+          >
+            <svg
+              class="w-[21px] fill-main"
+              aria-labelledby="remove-img"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+            >
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <title id="remove-img">Delete Image</title>
+              <path
+                d="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z"
+              />
+            </svg>
+          </button>
+        </div>
+        <p
+          id="img-alert"
+          class="error-message first-letter:uppercase"
+          role="alert"
+          aria-live="assertive"
+        ></p>
+      </div>
+      <label for="file">
+        <span
+          class="flex items-center gap-x-1.5 md:gap-x-2.5 -mt-2 lg:mt-0 py-2 px-3 md:px-3.5 bg-minor lg:bg-transparent text-sm md:text-base capitalize border-2 border-white rounded-3xl"
+          role="button"
+          tabindex="0"
+        >
+          <img
+            src="/images/camera.svg"
+            class="w-3 md:w-5 invert"
+            alt="Camera"
+          />
+          update image
+        </span>
+      </label>
+      <input id="file" type="file" class="hidden" name="img" accept="image/*" />
+    </section>
+
+    <section
+      class="flex flex-col justify-center items-center gap-y-6 w-full lg:w-1/2"
+    >
+      <h3 class="text-3xl font-bold capitalize">edit profile</h3>
+      <form
+        action="/"
+        method="post"
+        id="update-form"
+        class="flex flex-col justify-center items-center gap-y-6 w-full"
+        novalidate
+      >
+        <div class="input-field username">
+          <label for="update-username">username</label>
+          <input
+            id="update-username"
+            type="text"
+            name="username"
+            placeholder="Username"
+            autocomplete="username"
+            minlength="3"
+            maxlength="20"
+            required
+          />
+          <p class="error-message" role="alert" aria-live="assertive"></p>
+        </div>
+
+        <div class="input-field email">
+          <label for="update-email">email</label>
+          <input
+            id="update-email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            autocomplete="email"
+            required
+          />
+          <p class="error-message" role="alert" aria-live="assertive"></p>
+        </div>
+
+        <div class="input-field password">
+          <label for="update-password">password</label>
+          <input
+            id="update-password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            minlength="6"
+            maxlength="20"
+            required
+          />
+          <p class="error-message" role="alert" aria-live="assertive"></p>
+        </div>
+
+        <button
+          type="submit"
+          class="py-3 px-4 bg-minor hover:bg-main focus:bg-main text-white capitalize rounded-3xl transition"
+        >
+          save changes
+        </button>
+      </form>
+    </section>
+  </div>
+</main>
+<!-- End Edit Profile Main -->

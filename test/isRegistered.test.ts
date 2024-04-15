@@ -1,19 +1,21 @@
-import { loggedIn } from '../src/scripts/ts/modules/loggedIn';
+import { isRegistered } from '../src/scripts/ts/modules/auth/isRegistered';
 
 describe('loggedIn functions', () => {
   it('Should return false if the simpleAuthUser key is not in the local storage', () => {
-    expect(loggedIn()).toBe(false);
+    expect(isRegistered()).toBe(false);
   });
 
   it('Should return true if the simpleAuthUser key is in the local storage', () => {
-    const userData = {
+    const userData: User = {
       userName: 'user name',
       userEmail: 'user email',
       userPassword: 'user password',
+      userThumb: 'user thump',
+      isLogged: true,
     };
 
     localStorage.setItem('simpleAuthUser', JSON.stringify(userData));
 
-    expect(loggedIn()).toBe(true);
+    expect(isRegistered()).toBe(true);
   });
 });
