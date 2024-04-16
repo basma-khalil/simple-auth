@@ -32,11 +32,12 @@ A simple login/logout animated page built with semantic HTML, [**TypeScript**](h
 
 ### Built With
 
-[![Built With](https://skillicons.dev/icons?i=html,ts,tailwind,gulp,githubactions,netlify)](https://skillicons.dev)
+[![Built With](https://skillicons.dev/icons?i=html,ts,tailwind,gulp,express,jest,cypress,githubactions,netlify)](https://skillicons.dev)
 
 ### Features
 
 - Animated registration page
+- Edit profile page
 - CI/CD implementation with GitHub flow using GitHub actions
 - Responsive web design
 - Cross browser support
@@ -108,7 +109,7 @@ Please start the local server before running the **Cypress** test.
 
 ## Credits
 
-- **Author:** [True Coder](https://www.youtube.com/@TrueCoder/featured "Go to profile")
+- **Author:** Used [True Coder](https://www.youtube.com/watch?v=piG91X4sV2U&t=143s "Go to profile") as a reference to build my own code
 - **Images:** [unDraw](https://undraw.co/ "Go to website")
 - **Fonts:** [Poppins](https://fonts.google.com/specimen/Poppins "Go to website")
 
