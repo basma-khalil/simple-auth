@@ -30,6 +30,8 @@ A simple login/logout animated page built with semantic HTML, [**TypeScript**](h
 
 ### Live preview
 
+https://github.com/basma-khalil/simple-auth/assets/110143256/062a99ef-f0a3-4534-b887-4a81f15355f3
+
 ### Built With
 
 [![Built With](https://skillicons.dev/icons?i=html,ts,tailwind,gulp,express,jest,cypress,githubactions,netlify)](https://skillicons.dev)
@@ -72,7 +74,7 @@ npm install
 
 ### Development Mode
 
-- To Runs the app in the development watch mode, run the following command:
+- To run the app in the development watch mode, run the following command:
 
 ```
 gulp
