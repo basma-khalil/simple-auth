@@ -8,6 +8,9 @@ export const updateImage = (evt: Event) => {
   const imgAlert = document.getElementById('img-alert') as HTMLParagraphElement;
   const input = evt.target as HTMLInputElement;
   const maxSize = 3000000;
+  const errMessage = `image is too big, Please select an image less than ${
+    maxSize / 1000000
+  } MB`;
 
   const userData: User = getUserData();
 
@@ -18,9 +21,7 @@ export const updateImage = (evt: Event) => {
   const img = input.files[0];
 
   if (img.size > maxSize) {
-    imgAlert.textContent = `image is too big, Please select an image less than ${
-      maxSize / 1000000
-    } MB`;
+    imgAlert.textContent = errMessage;
     return;
   }
   avatar.src = URL.createObjectURL(img);

@@ -48,3 +48,11 @@ updateForm.addEventListener('submit', updateAccount);
 const delImgBtn = document.getElementById('remove') as HTMLButtonElement;
 (userThumb !== defaultImg && userThumb !== undefined) && delImgBtn.classList.remove('invisible');
 delImgBtn.addEventListener('click', deleteImage);
+
+const fileLabel = document.getElementById('file-label') as HTMLLabelElement;
+fileLabel.addEventListener('keydown', (evt: KeyboardEvent) => {
+  if (evt.key === ' ') {
+    fileInput.click();
+  }
+});
+

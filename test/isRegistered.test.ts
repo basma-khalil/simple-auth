@@ -10,7 +10,7 @@ describe('loggedIn functions', () => {
       userName: 'user name',
       userEmail: 'user email',
       userPassword: 'user password',
-      userThumb: 'user thump',
+      userThumb: 'user thumb',
       isLogged: true,
     };
 

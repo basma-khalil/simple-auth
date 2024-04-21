@@ -25,7 +25,7 @@ export const logIn = (evt: Event) => {
   if (signinForm.checkValidity()) {
     if (username !== userData.userName) {
       usernameInput.classList.add('invalid');
-      errMessage = 'a user with this user name does not exist';
+      errMessage = 'a user with this username does not exist';
       usernameMessage.textContent = errMessage;
       return;
     } else {

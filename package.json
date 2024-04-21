@@ -23,6 +23,7 @@
     "@babel/preset-env": "^7.23.8",
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@testing-library/jest-dom": "^6.4.2",
     "@types/jest": "^29.5.12",
     "autoprefixer": "^10.4.17",
     "cssnano": "^6.0.3",

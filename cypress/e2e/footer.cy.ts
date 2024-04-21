@@ -19,14 +19,14 @@ describe('Footer spec', () => {
   })
 
   it('Should display the current year in the footer copyright', () => {
-    cy.get('footer').get('#current-year').should('contain', currentYear);
+    cy.get('footer').find('#current-year').should('contain', currentYear);
   });
 
   it('Should navigate to the home page if the simple authentication link is clicked', () => {
-    cy.get('footer').contains('simple authentication').trigger('mouseover');
-    cy.get('footer').contains('simple authentication')
+    cy.get('footer').contains('a', 'simple authentication').trigger('mouseover');
+    cy.get('footer').contains('a', 'simple authentication')
       .should('have.css', 'cursor', 'pointer');
-    cy.get('footer').contains('simple authentication').click();
+    cy.get('footer').contains('a', 'simple authentication').click();
     cy.location('pathname').should('eq', '/');
   });
 });

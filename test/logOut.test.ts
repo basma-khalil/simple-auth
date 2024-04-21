@@ -6,13 +6,15 @@ describe('logOut functions', () => {
       userName: 'user name',
       userEmail: 'user email',
       userPassword: 'user password',
-      userThumb: 'user thump',
+      userThumb: 'user thumb',
       isLogged: true,
     };
-    
+
     localStorage.setItem('simpleAuthUser', JSON.stringify(userData));
     logOut();
-    const newUserData: User = JSON.parse(localStorage.getItem('simpleAuthUser') as string);
+    const newUserData: User = JSON.parse(
+      localStorage.getItem('simpleAuthUser') as string
+    );
 
     expect(newUserData.isLogged).toBe(false);
   });

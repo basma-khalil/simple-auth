@@ -133,13 +133,14 @@
         const imgAlert = document.getElementById('img-alert');
         const input = evt.target;
         const maxSize = 3000000;
+        const errMessage = `image is too big, Please select an image less than ${maxSize / 1000000} MB`;
         const userData = getUserData();
         imgAlert.textContent = '';
         if (!input.files)
             return;
         const img = input.files[0];
         if (img.size > maxSize) {
-            imgAlert.textContent = `image is too big, Please select an image less than ${maxSize / 1000000} MB`;
+            imgAlert.textContent = errMessage;
             return;
         }
         avatar.src = URL.createObjectURL(img);
@@ -235,5 +236,11 @@
     const delImgBtn = document.getElementById('remove');
     (userThumb !== defaultImg && userThumb !== undefined) && delImgBtn.classList.remove('invisible');
     delImgBtn.addEventListener('click', deleteImage);
+    const fileLabel = document.getElementById('file-label');
+    fileLabel.addEventListener('keydown', (evt) => {
+        if (evt.key === ' ') {
+            fileInput.click();
+        }
+    });
 
 }));

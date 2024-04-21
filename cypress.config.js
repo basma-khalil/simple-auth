@@ -11,4 +11,5 @@ export default defineConfig({
     base_url_dev: 'http://localhost:3000',
     base_url_prod: 'https://animated-authentication.netlify.app',
   },
+  chromeWebSecurity: false,
 });
