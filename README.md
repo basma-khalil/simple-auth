@@ -2,13 +2,15 @@
 
 A simple login/logout and authentication page
 
+![Simple authentication responsive](preview/simple-auth-responsive.png)
+
 ## Table of Contents
 
 - [Simple Authentication](#simple-authentication)
   - [Table of Contents](#table-of-contents)
   - [About the Project](#about-the-project)
     - [Description](#description)
-    - [Live preview](#live-preview)
+    - [Preview](#preview)
     - [Built With](#built-with)
     - [Features](#features)
     - [Usability](#usability)
@@ -28,7 +30,7 @@ A simple login/logout and authentication page
 
 A simple login/logout animated page built with semantic HTML, [**TypeScript**](https://www.typescriptlang.org/ "Go to website"), and [**Tailwind**](https://tailwindcss.com/ "Go to website") CSS framework, along with using [**Gulp**](https://gulpjs.com/ "Go to website") toolkit to compile and optimize the code and [**Jest**](https://jestjs.io/ "Go to website") and [**Cypress**](https://www.cypress.io/ "Go to website") test runners to test the app.
 
-### Live preview
+### Preview
 
 https://github.com/basma-khalil/simple-auth/assets/110143256/062a99ef-f0a3-4534-b887-4a81f15355f3
 
@@ -125,4 +127,4 @@ This code is licensed under the **Attribution-NonCommercial-ShareAlike** License
 
 ## Demo
 
-For Demo of this template you can visit [https://animated-authentication.netlify.app](https://animated-authentication.netlify.app "Go to website")
+For Demo of this template you can visit [bk-auth.netlify.app](https://bk-auth.netlify.app "Go to website")
